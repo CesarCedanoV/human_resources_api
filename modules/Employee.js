@@ -4,7 +4,9 @@ const { Schema } = require('mongoose');
 const employeeSchema = new Schema({
   national_identifier: {
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    trim: true
   },
   first_name: {
     type: String,
@@ -19,7 +21,8 @@ const employeeSchema = new Schema({
     required: true,
     minlength: 4,
     unique: true,
-    uppercase: true
+    uppercase: true,
+    trim: true
   },
   position:{
     type: String,
