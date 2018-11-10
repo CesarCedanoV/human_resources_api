@@ -4,16 +4,6 @@ const Employee = mongoose.model('employees');
 
 module.exports = app => {
 
-  app.get('/api/employees/all', async (req,res) => {
-    try{
-      const employees = await Employee.find();
-      res.send(employees);
-    }catch(err){
-      res.status(500).json(err);
-    }
-
-  });
-
   app.post('/api/employees/hire',  async (req,res) => {
     
     const employee = new Employee({...req.body});
@@ -25,8 +15,25 @@ module.exports = app => {
       res.send(newEmployee);
     }catch(err){
       res.status(400).json(err);
+    } 
+
+  });
+
+  app.get('/api/employees/all', async (req,res) => {
+    try{
+      const employees = await Employee.find();
+      res.send(employees);
+    }catch(err){
+      res.status(500).json(err);
     }
 
   });
+
+  app.get('/api/employees/get/:employee_code', async (req,res) => {
+    const { employee_code } = req.params
+    const employee = await Employee.findOne({ employee_code })
+    res.send(employee);
+  });
+
 
 }
