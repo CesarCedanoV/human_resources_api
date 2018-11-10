@@ -17,7 +17,9 @@ const employeeSchema = new Schema({
   employee_code:{
     type: String,
     required: true,
-    minlength: 4
+    minlength: 4,
+    unique: true,
+    uppercase: true
   },
   position:{
     type: String,
