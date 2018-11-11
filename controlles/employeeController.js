@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Employee = mongoose.model('employees');
+const Employee = mongoose.model('employee');
 
 module.exports.hire_employee = async (req,res) => {
   await new Employee({...req.body})
@@ -9,7 +9,7 @@ module.exports.hire_employee = async (req,res) => {
     });
 }
 
-module.exports.get_all_employees = async (req,res) => {
+module.exports.get_all_employee = async (req,res) => {
   await Employee.find( (err, docs) => {
     err ? res.status(500).json(err) : res.send(docs);
   });

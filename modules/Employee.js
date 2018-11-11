@@ -24,9 +24,11 @@ const employeeSchema = new Schema({
     uppercase: true,
     trim: true
   },
-  position:{
-    type: String,
-    required: true
+  position: {
+    type:Schema.Types.String, 
+    ref:'role',
+    field:'label',
+    required:true
   },
   anual_salary:{
     type: Number,
@@ -45,4 +47,4 @@ const employeeSchema = new Schema({
   }
 });
 
-mongoose.model('employees', employeeSchema);
+mongoose.model('employee', employeeSchema);
