@@ -24,10 +24,9 @@ const employeeSchema = new Schema({
     uppercase: true,
     trim: true
   },
-  position: {
-    type:Schema.Types.String, 
+  role: {
+    type:Schema.Types.ObjectId, 
     ref:'role',
-    field:'label',
     required:true
   },
   anual_salary:{
