@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./modules/Employee');
+require('./modules/Role');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
@@ -16,6 +17,7 @@ app.get('/', function (req, res) {
 });
 
 require('./routes/employeeRoutes')(app);
+require('./routes/roleRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
