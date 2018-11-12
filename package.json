@@ -1,0 +1,26 @@
+{
+  "name": "human_resources_api",
+  "version": "1.0.0",
+  "description": "This is an API that will cover the basic functionalities  of an 'Human Resource Management'",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CesarCedanoV/human_resources_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CesarCedanoV/human_resources_api/issues"
+  },
+  "homepage": "https://github.com/CesarCedanoV/human_resources_api#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.3.11",
+    "nodemon": "^1.18.6"
+  }
+}
