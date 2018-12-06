@@ -8,4 +8,7 @@ module.exports = app => {
   app.put('/api/role/update', roleController.update_role);
   
   app.delete('/api/role/delete', roleController.delete_role);
+
+  app.get('/api/role/query/code=:code', roleController.get_role_by_code);
+  
 }

@@ -28,3 +28,10 @@ module.exports.delete_role = async (req,res) => {
     err ? res.status(400).json(err) : res.send(doc);
   });
 }
+
+module.exports.get_role_by_code = async (req, res) => {
+  const { code } = req.params
+  await Role.findOne( {code}, (err, doc) => {
+    err ? res.status(400).json(err) : res.send(doc);
+  });
+}
