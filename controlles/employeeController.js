@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
-
 const Employee = mongoose.model('employee');
+const roleController = require('./roleController');
 
 module.exports.hire_employee = async (req,res) => {
-  await new Employee({...req.body})
-    .save((err, doc)=> {
-      err ? res.status(400).json(err) : res.send(doc);
-    });
+  try {
+    await setRoleId(req.body);
+    await new Employee({...req.body})
+      .save((err, doc)=> {
+        err ? res.status(400).json(err) : res.send(doc);
+      });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send(error)
+  }
 }
 
 module.exports.get_all_employee = async (req,res) => {
@@ -46,4 +52,11 @@ module.exports.delete_employee = async (req,res) => {
   await Employee.findOneAndDelete({_id,employee_code}, {rawResult:true},(err,doc)=> {
     err ? res.status(500).json(err) : res.send(doc);
   });
+}
+
+const setRoleId = async obj => {
+  const employeeRole = await roleController.getRoleByCode(obj.role);
+  if ( employeeRole ) obj.role = employeeRole._id;
+  console.log(obj.role);
+  return obj;
 }

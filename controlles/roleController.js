@@ -35,3 +35,14 @@ module.exports.get_role_by_code = async (req, res) => {
     err ? res.status(400).json(err) : res.send(doc);
   });
 }
+
+module.exports.getRoleByCode = async code => {
+  return await Role.findOne( {code} )
+    .exec()
+    .then(doc => {
+      return doc;
+    })
+    .catch(err => {
+      return err;
+    });
+}
