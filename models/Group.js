@@ -7,7 +7,7 @@ const groupSchema = new Schema({
     unique: true,
     required: true
   },
-  requiredRoles:{
+  required_roles:{
     type: [{
       role: {      
         type:Schema.Types.ObjectId, 

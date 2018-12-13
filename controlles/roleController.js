@@ -40,6 +40,7 @@ module.exports.getRoleByCode = async code => {
   return await Role.findOne( {code} )
     .exec()
     .then(doc => {
+      if (!doc) return null;
       return doc;
     })
     .catch(err => {

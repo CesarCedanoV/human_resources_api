@@ -15,6 +15,7 @@ module.exports.create_group = async (req, res) => {
 
 module.exports.get_all_group = async (req,res) => {
   await Group.find( (err, docs) => {
-    err ? res.status(500).json(err) : res.send(docs);
-  });
+    err ? res.status(500).json(err) : res.send(docs)
+  })
+  .populate('required_roles.role');
 }
