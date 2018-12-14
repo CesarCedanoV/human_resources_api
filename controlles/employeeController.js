@@ -60,3 +60,15 @@ const setRoleId = async obj => {
   console.log(obj.role);
   return obj;
 }
+
+module.exports.getEmployeeByEmployeeCode = async employee_code => {
+  return await Employee.findOne( {employee_code} )
+    .exec()
+    .then(doc => {
+      if (!doc) return null;
+      return doc;
+    })
+    .catch(err => {
+      return err;
+    });
+}
