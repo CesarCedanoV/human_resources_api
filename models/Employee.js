@@ -29,9 +29,9 @@ const employeeSchema = new Schema({
     ref:'role',
     required:true
   },
-  anual_salary:{
-    type: Number,
-    required: true
+  payroll:{
+    type: payrollSchema,
+    required:true
   },
   hired_date:{
     type: Date,

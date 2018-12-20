@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const payrollSchema = new Schema({
+  template_code:{
+    type: String,
+    maxlength: 5,
+    require:false,
+    unique:true
+  },
   anual_salary:{
     type: Number,
     require: true
@@ -14,6 +20,10 @@ const payrollSchema = new Schema({
   },
   payments_history: {
     type: [paymentSchema]
+  },
+  other_benefits:{
+    type: [String],
+    require:false
   }
 });
 
