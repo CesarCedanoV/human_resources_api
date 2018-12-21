@@ -1,4 +1,3 @@
-const { NewErrorMessage } = require('../util/errorMessage');
 const objectManipulation = require('../util/objectManipulation');
 const roleController = require('../controlles/roleController');
 const employeeController = require('../controlles/employeeController');

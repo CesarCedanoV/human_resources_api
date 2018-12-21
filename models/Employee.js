@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
+const payrollSchema = require('./Payroll');
 
 const employeeSchema = new Schema({
   national_identifier: {

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 var morgan = require('morgan'); 
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
+require('./models/Payroll');
 require('./models/Employee');
 require('./models/Role');
 require('./models/Group');
@@ -23,6 +24,6 @@ app.get('/', function (req, res) {
 require('./routes/employeeRoutes')(app);
 require('./routes/roleRoutes')(app);
 require('./routes/groupRoutes')(app);
-
+require('./routes/payrollRoutes')(app);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

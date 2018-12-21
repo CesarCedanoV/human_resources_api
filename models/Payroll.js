@@ -6,7 +6,8 @@ const payrollSchema = new Schema({
     type: String,
     maxlength: 5,
     require:false,
-    unique:true
+    unique:true,
+    trim:true
   },
   anual_salary:{
     type: Number,
@@ -19,7 +20,27 @@ const payrollSchema = new Schema({
     default: 'Monthly'
   },
   payments_history: {
-    type: [paymentSchema]
+    type: [{
+      amount: {
+        type: Number,
+        required: true
+      },
+      description: {
+        type: String,
+        required: true,
+        maxlength: 100
+      },
+      expected_date: {
+        type: Date, 
+        required: true,
+        default: new Date()
+      },
+      paid_out: {
+        type: Boolean,
+        required: true,
+        default:false
+      }
+    }]
   },
   other_benefits:{
     type: [String],
@@ -28,26 +49,5 @@ const payrollSchema = new Schema({
 });
 
 
-const paymentSchema = new Schema({
-  amount: {
-    type: Number,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true,
-    maxlength: 100
-  },
-  expected_date: {
-    type: Date, 
-    required: true,
-    default: new Date()
-  },
-  paid_out: {
-    type: Boolean,
-    required: true,
-    default:false
-  }
-});
 
 mongoose.model('payroll',payrollSchema);
