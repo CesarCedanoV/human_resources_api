@@ -6,7 +6,7 @@ module.exports = app => {
   
   app.post('/api/payroll/template/insert', handlePayrollRequests.validTemplateCode, payrollController.insert_payroll_template);
   
-  app.put('/api/payroll/template/update', handlePayrollRequests.validTemplateCode,handlePayrollRequests.compareTemplateCode, payrollController.update_payroll_template);
+  app.put('/api/payroll/template/update/templatecode=:template_code', handlePayrollRequests.validTemplateCode,handlePayrollRequests.compareTemplateCode, payrollController.update_payroll_template);
 
-  app.get('/api/payroll/template/templatecode=:template_code', payrollController.get_payroll_template_by_template_code);
+  app.get('/api/payroll/template/query/templatecode=:template_code', payrollController.get_payroll_template_by_template_code);
 }

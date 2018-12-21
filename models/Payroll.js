@@ -4,10 +4,12 @@ const { Schema } = mongoose;
 const payrollSchema = new Schema({
   template_code:{
     type: String,
+    trim: true,
+    index: true,
+    unique: true,
+    sparse: true,
     maxlength: 5,
-    require:false,
-    unique:true,
-    trim:true
+    require:false
   },
   anual_salary:{
     type: Number,

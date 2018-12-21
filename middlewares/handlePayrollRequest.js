@@ -13,8 +13,8 @@ module.exports.compareTemplateCode =  async (req, res, next) => {
 
 
 module.exports.validTemplateCode =  async (req, res, next) => {
-
-  if ( objectManipulation.setKeysToLowerCase(req.body).template_code == null){
+  const template_code = objectManipulation.setKeysToLowerCase(req.body).template_code
+  if ( template_code == null || template_code.trim() == ""){
     return res.status(400).send(`Invalid or Empty Template Code`)
   }
 
